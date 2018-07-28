@@ -4,11 +4,9 @@ import (
 	"flag"
 	"log"
 	"net/http"
-	"os"
 	"path/filepath"
 	"sync"
 	"text/template"
-	"trace"
 
 	"github.com/stretchr/gomniauth"
 	"github.com/stretchr/gomniauth/providers/facebook"
@@ -52,7 +50,6 @@ func main() {
 	)
 
 	r := newRoom()
-	r.tracer = trace.New(os.Stdout)
 
 	// root
 	http.Handle("/login", &templateHandler{filename: "login.html"})
